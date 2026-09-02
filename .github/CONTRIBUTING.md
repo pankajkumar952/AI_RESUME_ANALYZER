@@ -34,7 +34,7 @@ https://github.com/pankajkumar952/AI-Resume-Analyzer
 Clone your fork to your local machine:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/AI-Resume-Analyzer.git
+git clone https://github.com/pankajkumar952/AI_RESUME_ANALYZER.git
 ```
 
 Replace `YOUR-USERNAME` with your GitHub username.
