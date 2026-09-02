@@ -1,7 +1,7 @@
 # 🤖 AI Resume Analyzer
 
 <p align="center">
-  <a href="https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/">
+  <a href="https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/">
     <img src="https://img.shields.io/badge/🚀_Live_Demo-Streamlit-red?style=for-the-badge&logo=streamlit" alt="Live Demo">
   </a>
   <a href="https://github.com/pankajkumar952/AI-Resume-Analyzer">
@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/">
+  <a href="https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/">
     🚀 <strong>Try the Live Application</strong>
   </a>
 </p>
@@ -31,7 +31,7 @@
 
 <p align="center">
 
-<a href="https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/">
+<a href="https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/">
 <img src="https://img.shields.io/badge/OPEN_AI_RESUME_ANALYZER-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open AI Resume Analyzer">
 </a>
 
@@ -39,7 +39,7 @@
 
 ### 🔗 Live Application
 
-**https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/**
+**[🚀 Open AI Resume Analyzer](https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/)**
 
 > Upload your resume and use the AI-powered application to analyze your profile and receive career-focused insights.
 
@@ -130,18 +130,31 @@ The project demonstrates how **Python, Streamlit, Artificial Intelligence, Natur
 
 ## 📂 Project Structure
 
-    AI-Resume-Analyzer/
-    │
-    ├── app.py
-    ├── requirements.txt
-    ├── README.md
-    ├── .gitignore
-    │
-    ├── assets/
-    │   └── ...
-    │
-    └── src/
-        └── ...
+```text
+AI-Resume-Analyzer/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── DEPLOYMENT.md
+├── AI_MODELS.md
+├── Dockerfile
+├── .gitignore
+│
+├── assets/
+│   └── ...
+│
+├── config/
+│   └── ...
+│
+├── src/
+│   └── ...
+│
+└── .devcontainer/
+    └── devcontainer.json
+```
 
 > The exact project structure may vary depending on the current implementation.
 
@@ -151,37 +164,67 @@ The project demonstrates how **Python, Streamlit, Artificial Intelligence, Natur
 
 ### 1. Clone the Repository
 
-    git clone https://github.com/pankajkumar952/AI-Resume-Analyzer.git
+```bash
+git clone https://github.com/pankajkumar952/AI-Resume-Analyzer.git
+```
 
 ### 2. Open the Project
 
-    cd AI-Resume-Analyzer
+```bash
+cd AI-Resume-Analyzer
+```
 
 ### 3. Create a Virtual Environment
 
-    python -m venv venv
+```bash
+python -m venv venv
+```
 
 ### 4. Activate the Virtual Environment
 
 #### Windows
 
-    venv\Scripts\activate
+```bash
+venv\Scripts\activate
+```
 
 #### macOS / Linux
 
-    source venv/bin/activate
+```bash
+source venv/bin/activate
+```
 
-### 5. Install Dependencies
+### 5. Upgrade pip
 
-    pip install -r requirements.txt
+```bash
+python -m pip install --upgrade pip
+```
 
-### 6. Start the Streamlit Application
+### 6. Install Dependencies
 
-    streamlit run app.py
+```bash
+pip install -r requirements.txt
+```
+
+### 7. Install the spaCy English Model
+
+If required by the resume analysis module:
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+### 8. Start the Streamlit Application
+
+```bash
+streamlit run app.py
+```
 
 The application will normally be available at:
 
-    http://localhost:8501
+```text
+http://localhost:8501
+```
 
 ---
 
@@ -189,22 +232,27 @@ The application will normally be available at:
 
 The application is deployed using **Streamlit Community Cloud**.
 
-### Deployment Architecture
-
-    Local Development
-           │
-           ▼
-       GitHub
-           │
-           ▼
-    Streamlit Community Cloud
-           │
-           ▼
-      Live Web App
-
 ### 🌐 Production Application
 
-**https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/**
+**[🚀 AI Resume Analyzer — Live Application](https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/)**
+
+### Deployment Architecture
+
+```text
+Local Development
+       │
+       ▼
+   Git Changes
+       │
+       ▼
+     GitHub
+       │
+       ▼
+Streamlit Community Cloud
+       │
+       ▼
+  Live Web Application
+```
 
 ---
 
@@ -214,27 +262,61 @@ The project uses GitHub as the source repository for the deployed Streamlit appl
 
 The development workflow is:
 
-    Make Code Changes
-           │
-           ▼
-       git add .
-           │
-           ▼
-       git commit
-           │
-           ▼
-       git push
-           │
-           ▼
-         GitHub
-           │
-           ▼
-    Streamlit Deployment
-           │
-           ▼
-      Updated App
+```text
+Make Code Changes
+       │
+       ▼
+   git add .
+       │
+       ▼
+  git commit
+       │
+       ▼
+   git push
+       │
+       ▼
+     GitHub
+       │
+       ▼
+Streamlit Deployment
+       │
+       ▼
+  Updated App
+```
 
-This makes it easy to maintain and update the application through GitHub.
+### Basic Git Workflow
+
+```bash
+git add .
+git commit -m "Update AI Resume Analyzer"
+git push
+```
+
+Changes pushed to the configured GitHub repository can then be deployed through Streamlit Community Cloud.
+
+---
+
+## 🐳 Docker
+
+The project also includes a Docker configuration for containerized deployment.
+
+### Build the Docker Image
+
+```bash
+docker build -t ai-resume-analyzer .
+```
+
+### Run the Container
+
+```bash
+docker run -p 8501:8501 ai-resume-analyzer
+```
+
+Open:
+
+```text
+http://localhost:8501
+```
 
 ---
 
@@ -274,13 +356,13 @@ This project demonstrates practical knowledge of:
 
 ---
 
-## 🚀 Other Projects
+# 🚀 Other Projects
 
-### 1. CognitiveFraud — Real-Time AI Fraud Detection Platform
+## 1. CognitiveFraud — Real-Time AI Fraud Detection Platform
 
 A real-time fraud detection and risk analytics platform designed to analyze transactions and identify suspicious activities.
 
-#### Technologies
+### Technologies
 
 - Python
 - FastAPI
@@ -293,7 +375,7 @@ A real-time fraud detection and risk analytics platform designed to analyze tran
 - React
 - TypeScript
 
-#### Key Features
+### Key Features
 
 - Real-time transaction processing
 - Fraud risk scoring
@@ -306,11 +388,11 @@ A real-time fraud detection and risk analytics platform designed to analyze tran
 
 ---
 
-### 2. JobPulse AI — Intelligent Job & Recruitment Platform
+## 2. JobPulse AI — Intelligent Job & Recruitment Platform
 
 An AI-powered recruitment platform designed to connect job seekers and recruiters.
 
-#### Key Features
+### Key Features
 
 - Job discovery
 - Resume parsing
@@ -322,18 +404,18 @@ An AI-powered recruitment platform designed to connect job seekers and recruiter
 
 ---
 
-### 3. AI-Powered Code Debugger Assistant
+## 3. AI-Powered Code Debugger Assistant
 
 An AI-powered application designed to analyze source code and provide debugging recommendations.
 
-#### Technologies
+### Technologies
 
 - Python
 - Streamlit
 - AI
 - Source Code Analysis
 
-#### Key Features
+### Key Features
 
 - Code analysis
 - Error detection
@@ -342,15 +424,15 @@ An AI-powered application designed to analyze source code and provide debugging 
 
 ---
 
-## 💼 Technical Skills
+# 💼 Technical Skills
 
-### Languages
+## Languages
 
 - Java
 - Python
 - JavaScript
 
-### Backend
+## Backend
 
 - Spring Boot
 - Spring MVC
@@ -360,20 +442,20 @@ An AI-powered application designed to analyze source code and provide debugging 
 - REST APIs
 - Microservices
 
-### Frontend
+## Frontend
 
 - React.js
 - Angular
 - HTML5
 - CSS3
 
-### Databases
+## Databases
 
 - MySQL
 - PostgreSQL
 - MongoDB
 
-### Cloud & DevOps
+## Cloud & DevOps
 
 - AWS
 - Docker
@@ -381,14 +463,14 @@ An AI-powered application designed to analyze source code and provide debugging 
 - CI/CD
 - Maven
 
-### Messaging & Testing
+## Messaging & Testing
 
 - Apache Kafka
 - JUnit
 - REST Assured
 - Postman
 
-### AI / Machine Learning
+## AI / Machine Learning
 
 - Scikit-learn
 - TensorFlow
@@ -399,7 +481,7 @@ An AI-powered application designed to analyze source code and provide debugging 
 - Recommendation Systems
 - Fraud Detection Models
 
-### Tools & Concepts
+## Tools & Concepts
 
 - Git
 - GitHub
@@ -414,7 +496,7 @@ An AI-powered application designed to analyze source code and provide debugging 
 
 ---
 
-## 📜 Certifications
+# 📜 Certifications
 
 - Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate
 - Oracle Autonomous Database Cloud 2025 Certified Professional
@@ -428,9 +510,9 @@ An AI-powered application designed to analyze source code and provide debugging 
 
 ---
 
-## 🎓 Education
+# 🎓 Education
 
-### Bachelor of Technology — Computer Science Engineering
+## Bachelor of Technology — Computer Science Engineering
 
 **Invertis University, Bareilly**
 
@@ -440,7 +522,7 @@ An AI-powered application designed to analyze source code and provide debugging 
 
 ---
 
-## 👨‍💻 About Me
+# 👨‍💻 About Me
 
 Hi, I'm **Pankaj Kumar**, a Software Developer based in Hyderabad, India.
 
@@ -463,7 +545,7 @@ I am interested in building scalable software applications, backend systems, ful
 
 ---
 
-## 📊 GitHub
+# 📊 GitHub
 
 <p align="center">
 
@@ -483,7 +565,7 @@ I am interested in building scalable software applications, backend systems, ful
 
 ---
 
-## 🔗 Connect With Me
+# 🔗 Connect With Me
 
 ### GitHub
 
@@ -503,13 +585,15 @@ https://pankajkumar952.github.io/Website_Learning_Platform_For_Engineer/
 
 ### AI Resume Analyzer — Live
 
-https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/
+https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
 If you find this project useful, please consider giving the repository a ⭐ on GitHub.
+
+Your support helps improve and maintain the project.
 
 ---
 
