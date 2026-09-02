@@ -373,7 +373,7 @@ https://github.com/pankajkumar952/AI-Resume-Analyzer
 
 **Live Application:**
 
-https://ai-resume-analyzer-cvngmyep87u9xykhbvmdft.streamlit.app/
+https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/
 
 ---
 
