@@ -160,73 +160,10 @@ AI-Resume-Analyzer/
 
 ---
 
-## ⚙️ Run Locally
 
-### 1. Clone the Repository
 
-```bash
-git clone https://github.com/pankajkumar952/AI-Resume-Analyzer.git
-```
 
-### 2. Open the Project
 
-```bash
-cd AI-Resume-Analyzer
-```
-
-### 3. Create a Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### 4. Activate the Virtual Environment
-
-#### Windows
-
-```bash
-venv\Scripts\activate
-```
-
-#### macOS / Linux
-
-```bash
-source venv/bin/activate
-```
-
-### 5. Upgrade pip
-
-```bash
-python -m pip install --upgrade pip
-```
-
-### 6. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 7. Install the spaCy English Model
-
-If required by the resume analysis module:
-
-```bash
-python -m spacy download en_core_web_sm
-```
-
-### 8. Start the Streamlit Application
-
-```bash
-streamlit run app.py
-```
-
-The application will normally be available at:
-
-```text
-http://localhost:8501
-```
-
----
 
 ## ☁️ Deployment
 
