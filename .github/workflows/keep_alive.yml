@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Ping website
-        run: curl -L --fail --silent --show-error "https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/"
+        run: curl --fail --silent --show-error "https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/"
