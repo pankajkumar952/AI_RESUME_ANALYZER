@@ -899,10 +899,7 @@ class ResumeApp:
             print("Validating form data...")
             print(f"Session state form data: {st.session_state.form_data}")
             print(
-    f"Email input value: {
-        st.session_state.get(
-            'email_input',
-             '')}")
+  print(f"Email input value: {st.session_state.get('email_input', '')}")
 
             # Get the current values from form
             current_name = st.session_state.form_data['personal_info']['full_name'].strip(
