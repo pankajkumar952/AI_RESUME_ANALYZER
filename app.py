@@ -1,4 +1,4 @@
-﻿"""
+"""
 Smart Resume AI - Main Application
 """
 import time
@@ -547,9 +547,6 @@ class ResumeApp:
         """Render the dashboard page"""
         self.dashboard_manager.render_dashboard()
 
-        #st.toast("Check out these repositories: [Portfolio](https://github.com/pankajkumar952/Portfolio)", icon="ℹ️")
-
-
     def render_empty_state(self, icon, message):
         """Render an empty state with icon and message"""
         return f"""
@@ -600,8 +597,7 @@ class ResumeApp:
 
         # Template selection
         template_options = ["Modern", "Professional", "Minimal", "Creative"]
-        selected_template = st.selectbox(
-    "Select Resume Template", template_options)
+        selected_template = st.selectbox("Select Resume Template", template_options)
         st.success(f"🎨 Currently using: {selected_template} Template")
 
         # Personal Information
@@ -616,10 +612,7 @@ class ResumeApp:
 
             # Input fields with existing values
             full_name = st.text_input("Full Name", value=existing_name)
-            email = st.text_input(
-    "Email",
-    value=existing_email,
-     key="email_input")
+            email = st.text_input("Email", value=existing_email, key="email_input")
             phone = st.text_input("Phone", value=existing_phone)
 
             # Immediately update session state after email input
@@ -635,8 +628,7 @@ class ResumeApp:
             # Input fields with existing values
             location = st.text_input("Location", value=existing_location)
             linkedin = st.text_input("LinkedIn URL", value=existing_linkedin)
-            portfolio = st.text_input(
-    "Portfolio Website", value=existing_portfolio)
+            portfolio = st.text_input("Portfolio Website", value=existing_portfolio)
 
         # Update personal info in session state
         st.session_state.form_data['personal_info'] = {
@@ -673,22 +665,11 @@ class ResumeApp:
             with st.expander(f"Experience {idx + 1}", expanded=True):
                 col1, col2 = st.columns(2)
                 with col1:
-                    exp['company'] = st.text_input(
-    "Company Name",
-    key=f"company_{idx}",
-    value=exp.get(
-        'company',
-         ''))
-                    exp['position'] = st.text_input(
-    "Position", key=f"position_{idx}", value=exp.get(
-        'position', ''))
+                    exp['company'] = st.text_input("Company Name", key=f"company_{idx}", value=exp.get('company', ''))
+                    exp['position'] = st.text_input("Position", key=f"position_{idx}", value=exp.get('position', ''))
                 with col2:
-                    exp['start_date'] = st.text_input(
-    "Start Date", key=f"start_date_{idx}", value=exp.get(
-        'start_date', ''))
-                    exp['end_date'] = st.text_input(
-    "End Date", key=f"end_date_{idx}", value=exp.get(
-        'end_date', ''))
+                    exp['start_date'] = st.text_input("Start Date", key=f"start_date_{idx}", value=exp.get('start_date', ''))
+                    exp['end_date'] = st.text_input("End Date", key=f"end_date_{idx}", value=exp.get('end_date', ''))
 
                 exp['description'] = st.text_area("Role Overview", key=f"desc_{idx}",
                                                 value=exp.get(
@@ -738,12 +719,7 @@ class ResumeApp:
 
         for idx, proj in enumerate(st.session_state.form_data['projects']):
             with st.expander(f"Project {idx + 1}", expanded=True):
-                proj['name'] = st.text_input(
-    "Project Name",
-    key=f"proj_name_{idx}",
-    value=proj.get(
-        'name',
-         ''))
+                proj['name'] = st.text_input("Project Name", key=f"proj_name_{idx}", value=proj.get('name', ''))
                 proj['technologies'] = st.text_input("Technologies Used", key=f"proj_tech_{idx}",
                                                    value=proj.get(
                                                        'technologies', ''),
@@ -803,31 +779,14 @@ class ResumeApp:
             with st.expander(f"Education {idx + 1}", expanded=True):
                 col1, col2 = st.columns(2)
                 with col1:
-                    edu['school'] = st.text_input(
-    "School/University",
-    key=f"school_{idx}",
-    value=edu.get(
-        'school',
-         ''))
-                    edu['degree'] = st.text_input(
-    "Degree", key=f"degree_{idx}", value=edu.get(
-        'degree', ''))
+                    edu['school'] = st.text_input("School/University", key=f"school_{idx}", value=edu.get('school', ''))
+                    edu['degree'] = st.text_input("Degree", key=f"degree_{idx}", value=edu.get('degree', ''))
                 with col2:
-                    edu['field'] = st.text_input(
-    "Field of Study",
-    key=f"field_{idx}",
-    value=edu.get(
-        'field',
-         ''))
+                    edu['field'] = st.text_input("Field of Study", key=f"field_{idx}", value=edu.get('field', ''))
                     edu['graduation_date'] = st.text_input("Graduation Date", key=f"grad_date_{idx}",
                                                          value=edu.get('graduation_date', ''))
 
-                edu['gpa'] = st.text_input(
-    "GPA (optional)",
-    key=f"gpa_{idx}",
-    value=edu.get(
-        'gpa',
-         ''))
+                edu['gpa'] = st.text_input("GPA (optional)", key=f"gpa_{idx}", value=edu.get('gpa', ''))
 
                 # Educational Achievements
                 st.markdown("##### Achievements & Activities")
@@ -898,12 +857,10 @@ class ResumeApp:
         if st.button("Generate Resume 📄", type="primary"):
             print("Validating form data...")
             print(f"Session state form data: {st.session_state.form_data}")
-            print(
-  print(f"Email input value: {st.session_state.get('email_input', '')}")
+            print(f"Email input value: {st.session_state.get('email_input', '')}")
 
             # Get the current values from form
-            current_name = st.session_state.form_data['personal_info']['full_name'].strip(
-            )
+            current_name = st.session_state.form_data['personal_info']['full_name'].strip()
             current_email = st.session_state.email_input if 'email_input' in st.session_state else ''
 
             print(f"Current name: {current_name}")
@@ -963,9 +920,7 @@ class ResumeApp:
                                 on_click=lambda: st.balloons()
                             )
                         except Exception as db_error:
-                            print(
-    f"Warning: Failed to save to database: {
-        str(db_error)}")
+                            print(f"Warning: Failed to save to database: {str(db_error)}")
                             # Still allow download even if database save fails
                             st.warning(
                                 "⚠️ Resume generated but couldn't be saved to database")
@@ -976,9 +931,7 @@ class ResumeApp:
                             st.download_button(
                                 label="Download Resume 📥",
                                 data=resume_buffer,
-                                file_name=f"{
-    current_name.replace(
-        ' ', '_')}_resume.docx",
+                                file_name=f"{current_name.replace(' ', '_')}_resume.docx",
                                 mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                                 on_click=lambda: st.balloons()
                             )
@@ -995,8 +948,6 @@ class ResumeApp:
                 print(f"Error preparing resume data: {str(e)}")
                 print(f"Full traceback: {traceback.format_exc()}")
                 st.error(f"❌ Error preparing resume data: {str(e)}")
-
-        #st.toast("Check out these repositories: [Website](https://github.com/pankajkumar952/Website_Learning_Platform_For_Engineer)", icon="ℹ️")
 
     def render_about(self):
         """Render the about page"""
@@ -1015,10 +966,7 @@ class ResumeApp:
                 return None
 
         # Get image path and convert to base64
-        image_path = os.path.join(
-    os.path.dirname(__file__),
-    "assets",
-     "Smart.jpeg")
+        image_path = os.path.join(os.path.dirname(__file__), "assets", "Smart.jpeg")
         image_base64 = get_image_as_base64(image_path)
 
         apply_modern_styles()
@@ -1234,8 +1182,6 @@ class ResumeApp:
             </div>
         """, unsafe_allow_html=True)
 
-        #st.toast("Check out these repositories: [CognitiveFraud](https://github.com/pankajkumar952/CognitiveFraud)", icon="ℹ️")
-
     def render_analyzer(self):
         """Render the resume analyzer page"""
         apply_modern_styles()
@@ -1252,12 +1198,10 @@ class ResumeApp:
         with analyzer_tabs[0]:
             # Job Role Selection
             categories = list(self.job_roles.keys())
-            selected_category = st.selectbox(
-    "Job Category", categories, key="standard_category")
+            selected_category = st.selectbox("Job Category", categories, key="standard_category")
 
             roles = list(self.job_roles[selected_category].keys())
-            selected_role = st.selectbox(
-    "Specific Role", roles, key="standard_role")
+            selected_role = st.selectbox("Specific Role", roles, key="standard_role")
 
             role_info = self.job_roles[selected_category][selected_role]
 
@@ -1272,9 +1216,7 @@ class ResumeApp:
             """, unsafe_allow_html=True)
 
             # File Upload
-            uploaded_file = st.file_uploader(
-    "Upload your resume", type=[
-        'pdf', 'docx'], key="standard_file")
+            uploaded_file = st.file_uploader("Upload your resume", type=['pdf', 'docx'], key="standard_file")
 
             if not uploaded_file:
                 # Display empty state with a prominent upload button
@@ -1410,9 +1352,7 @@ class ResumeApp:
 
                         # Show results based on document type
                         if analysis.get('document_type') != 'resume':
-                            st.error(
-    f"⚠️ This appears to be a {
-        analysis['document_type']} document, not a resume!")
+                            st.error(f"⚠️ This appears to be a {analysis['document_type']} document, not a resume!")
                             st.warning(
                                 "Please upload a proper resume for ATS analysis.")
                             return
@@ -1473,8 +1413,6 @@ class ResumeApp:
 
                         st.markdown("</div>", unsafe_allow_html=True)
 
-                        # self.display_analysis_results(analysis_results)
-
                         # Skills Match Card
                         st.markdown("""
                         <div class="feature-card">
@@ -1518,13 +1456,9 @@ class ResumeApp:
                                     <h3 style='color: #4CAF50; margin-bottom: 10px;'>📞 Contact Information</h3>
                                     <ul style='list-style-type: none; padding-left: 0;'>
                                 """, unsafe_allow_html=True)
-                                for suggestion in analysis.get(
-                                    'contact_suggestions', []):
-                                    st.markdown(
-    f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>",
-     unsafe_allow_html=True)
-                                st.markdown(
-    "</ul></div>", unsafe_allow_html=True)
+                                for suggestion in analysis.get('contact_suggestions', []):
+                                    st.markdown(f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>", unsafe_allow_html=True)
+                                st.markdown("</ul></div>", unsafe_allow_html=True)
 
                             # Summary Section
                         if analysis.get('summary_suggestions'):
@@ -1533,37 +1467,24 @@ class ResumeApp:
                                     <h3 style='color: #4CAF50; margin-bottom: 10px;'>📝 Professional Summary</h3>
                                     <ul style='list-style-type: none; padding-left: 0;'>
                                 """, unsafe_allow_html=True)
-                                for suggestion in analysis.get(
-                                    'summary_suggestions', []):
-                                    st.markdown(
-    f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>",
-     unsafe_allow_html=True)
-                                st.markdown(
-    "</ul></div>", unsafe_allow_html=True)
+                                for suggestion in analysis.get('summary_suggestions', []):
+                                    st.markdown(f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>", unsafe_allow_html=True)
+                                st.markdown("</ul></div>", unsafe_allow_html=True)
 
                             # Skills Section
-                        if analysis.get(
-                            'skills_suggestions') or analysis['keyword_match']['missing_skills']:
+                        if analysis.get('skills_suggestions') or analysis['keyword_match']['missing_skills']:
                                 st.markdown("""
                                 <div style='background-color: #f9f6f0; padding: 15px; border-radius: 10px; margin: 10px 0;'>
                                     <h3 style='color: #4CAF50; margin-bottom: 10px;'>🎯 Skills</h3>
                                     <ul style='list-style-type: none; padding-left: 0;'>
                                 """, unsafe_allow_html=True)
-                                for suggestion in analysis.get(
-                                    'skills_suggestions', []):
-                                    st.markdown(
-    f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>",
-     unsafe_allow_html=True)
+                                for suggestion in analysis.get('skills_suggestions', []):
+                                    st.markdown(f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>", unsafe_allow_html=True)
                                 if analysis['keyword_match']['missing_skills']:
-                                    st.markdown(
-    "<li style='margin-bottom: 8px;'>✓ Consider adding these relevant skills:</li>",
-     unsafe_allow_html=True)
+                                    st.markdown("<li style='margin-bottom: 8px;'>✓ Consider adding these relevant skills:</li>", unsafe_allow_html=True)
                                     for skill in analysis['keyword_match']['missing_skills']:
-                                        st.markdown(
-    f"<li style='margin-left: 20px; margin-bottom: 4px;'>• {skill}</li>",
-     unsafe_allow_html=True)
-                                st.markdown(
-    "</ul></div>", unsafe_allow_html=True)
+                                        st.markdown(f"<li style='margin-left: 20px; margin-bottom: 4px;'>• {skill}</li>", unsafe_allow_html=True)
+                                st.markdown("</ul></div>", unsafe_allow_html=True)
 
                             # Experience Section
                         if analysis.get('experience_suggestions'):
@@ -1572,13 +1493,9 @@ class ResumeApp:
                                     <h3 style='color: #4CAF50; margin-bottom: 10px;'>💼 Work Experience</h3>
                                     <ul style='list-style-type: none; padding-left: 0;'>
                                 """, unsafe_allow_html=True)
-                                for suggestion in analysis.get(
-                                    'experience_suggestions', []):
-                                    st.markdown(
-    f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>",
-     unsafe_allow_html=True)
-                                st.markdown(
-    "</ul></div>", unsafe_allow_html=True)
+                                for suggestion in analysis.get('experience_suggestions', []):
+                                    st.markdown(f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>", unsafe_allow_html=True)
+                                st.markdown("</ul></div>", unsafe_allow_html=True)
 
                             # Education Section
                         if analysis.get('education_suggestions'):
@@ -1587,13 +1504,9 @@ class ResumeApp:
                                     <h3 style='color: #4CAF50; margin-bottom: 10px;'>🎓 Education</h3>
                                     <ul style='list-style-type: none; padding-left: 0;'>
                                 """, unsafe_allow_html=True)
-                                for suggestion in analysis.get(
-                                    'education_suggestions', []):
-                                    st.markdown(
-    f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>",
-     unsafe_allow_html=True)
-                                st.markdown(
-    "</ul></div>", unsafe_allow_html=True)
+                                for suggestion in analysis.get('education_suggestions', []):
+                                    st.markdown(f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>", unsafe_allow_html=True)
+                                st.markdown("</ul></div>", unsafe_allow_html=True)
 
                             # General Formatting Suggestions
                         if analysis.get('format_suggestions'):
@@ -1602,13 +1515,9 @@ class ResumeApp:
                                     <h3 style='color: #4CAF50; margin-bottom: 10px;'>📄 Formatting</h3>
                                     <ul style='list-style-type: none; padding-left: 0;'>
                                 """, unsafe_allow_html=True)
-                                for suggestion in analysis.get(
-                                    'format_suggestions', []):
-                                    st.markdown(
-    f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>",
-     unsafe_allow_html=True)
-                                st.markdown(
-    "</ul></div>", unsafe_allow_html=True)
+                                for suggestion in analysis.get('format_suggestions', []):
+                                    st.markdown(f"<li style='margin-bottom: 8px;'>✓ {suggestion}</li>", unsafe_allow_html=True)
+                                st.markdown("</ul></div>", unsafe_allow_html=True)
 
                         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -1627,8 +1536,7 @@ class ResumeApp:
 
                         # Display courses in a grid
                     cols = st.columns(2)
-                    for i, course in enumerate(
-                        courses[:6]):  # Show top 6 courses
+                    for i, course in enumerate(courses[:6]):  # Show top 6 courses
                             with cols[i % 2]:
                                 st.markdown(f"""
                                 <div style='background-color: #f9f6f0; padding: 15px; border-radius: 10px; margin: 10px 0;'>
@@ -1707,10 +1615,7 @@ class ResumeApp:
                 try:
                     # Add a reset button for admin users
                     if st.session_state.get('is_admin', False):
-                        if st.button(
-    "🔄 Reset AI Analysis Statistics",
-    type="secondary",
-     key="reset_ai_stats_button_2"):
+                        if st.button("🔄 Reset AI Analysis Statistics", type="secondary", key="reset_ai_stats_button_2"):
                             from config.database import reset_ai_analysis_stats
                             result = reset_ai_analysis_stats()
                             if result["success"]:
@@ -1787,9 +1692,7 @@ class ResumeApp:
                                 mode="gauge+number",
                                 value=ai_stats["average_score"],
                                 domain={'x': [0, 1], 'y': [0, 1]},
-                                title={
-    'text': "Score", 'font': {
-        'size': 14, 'color': 'white'}},
+                                title={'text': "Score", 'font': {'size': 14, 'color': 'white'}},
                                 gauge={
                                     'axis': {'range': [0, 100], 'tickwidth': 1, 'tickcolor': "white"},
                                     'bar': {'color': "#38ef7d" if ai_stats["average_score"] >= 80 else "#FFEB3B" if ai_stats["average_score"] >= 60 else "#FF5252"},
@@ -1797,12 +1700,9 @@ class ResumeApp:
                                     'borderwidth': 2,
                                     'bordercolor': "white",
                                     'steps': [
-                                        {'range': [
-                                            0, 40], 'color': 'rgba(255, 82, 82, 0.3)'},
-                                        {'range': [
-                                            40, 70], 'color': 'rgba(255, 235, 59, 0.3)'},
-                                        {'range': [
-                                            70, 100], 'color': 'rgba(56, 239, 125, 0.3)'}
+                                        {'range': [0, 40], 'color': 'rgba(255, 82, 82, 0.3)'},
+                                        {'range': [40, 70], 'color': 'rgba(255, 235, 59, 0.3)'},
+                                        {'range': [70, 100], 'color': 'rgba(56, 239, 125, 0.3)'}
                                     ],
                                 }
                             ))
@@ -1835,10 +1735,7 @@ class ResumeApp:
                             fig.update_traces(
                                 textposition='inside',
                                 textinfo='percent+label',
-                                marker=dict(
-    line=dict(
-        color='#000000',
-         width=1.5))
+                                marker=dict(line=dict(color='#000000', width=1.5))
                             )
 
                             fig.update_layout(
@@ -1869,8 +1766,7 @@ class ResumeApp:
                         # Display top job roles with enhanced visualization
                         if ai_stats["top_job_roles"]:
                             st.markdown("### 🎯 Top Job Roles")
-                            roles_data = pd.DataFrame(
-                                ai_stats["top_job_roles"])
+                            roles_data = pd.DataFrame(ai_stats["top_job_roles"])
 
                             # Create a more colorful bar chart
                             fig = px.bar(
@@ -1879,8 +1775,7 @@ class ResumeApp:
                                 y="count",
                                 color="count",
                                 color_continuous_scale=px.colors.sequential.Viridis,
-                                labels={
-    "role": "Job Role", "count": "Number of Analyses"}
+                                labels={"role": "Job Role", "count": "Number of Analyses"}
                             )
 
                             fig.update_traces(
@@ -1928,18 +1823,14 @@ class ResumeApp:
                             import numpy as np
 
                             today = datetime.datetime.now()
-                            dates = [
-    (today -
-    datetime.timedelta(
-        days=i)).strftime('%Y-%m-%d') for i in range(7)]
+                            dates = [(today - datetime.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
                             dates.reverse()
 
                             # Generate some random data that sums to
                             # total_analyses
                             total = ai_stats["total_analyses"]
                             if total > 7:
-                                values = np.random.dirichlet(
-                                    np.ones(7)) * total
+                                values = np.random.dirichlet(np.ones(7)) * total
                                 values = [round(v) for v in values]
                                 # Adjust to make sure sum equals total
                                 diff = total - sum(values)
@@ -1965,9 +1856,7 @@ class ResumeApp:
 
                             fig.update_traces(
                                 line=dict(width=3),
-                                marker=dict(
-    size=8, line=dict(
-        width=2, color='white'))
+                                marker=dict(size=8, line=dict(width=2, color='white'))
                             )
 
                             fig.update_layout(
@@ -2004,8 +1893,7 @@ class ResumeApp:
                             </h3>
                             """, unsafe_allow_html=True)
 
-                            score_data = pd.DataFrame(
-                                ai_stats["score_distribution"])
+                            score_data = pd.DataFrame(ai_stats["score_distribution"])
 
                             # Create a more visually appealing bar chart for
                             # score distribution
@@ -2021,9 +1909,7 @@ class ResumeApp:
                                     "61-80": "#8BC34A",
                                     "81-100": "#38ef7d"
                                 },
-                                labels={
-    "range": "Score Range",
-     "count": "Number of Resumes"},
+                                labels={"range": "Score Range", "count": "Number of Resumes"},
                                 text="count"  # Display count values on bars
                             )
 
@@ -2032,8 +1918,7 @@ class ResumeApp:
                                 marker_line_color="white",
                                 opacity=0.9,
                                 textposition='outside',
-                                textfont=dict(
-    color="white", size=14, family="Arial, sans-serif"),
+                                textfont=dict(color="white", size=14, family="Arial, sans-serif"),
                                 hovertemplate="<b>Score Range:</b> %{x}<br><b>Number of Resumes:</b> %{y}<extra></extra>"
                             )
 
@@ -2043,30 +1928,16 @@ class ResumeApp:
                                 height=400,  # Increase height for better visibility
                                 paper_bgcolor='rgba(0,0,0,0)',
                                 plot_bgcolor='rgba(0,0,0,0)',
-                                font=dict(
-    color="#ffffff", size=14, family="Arial, sans-serif"),
-                                # title={
-                                #     # 'text': 'Resume Score Distribution',
-                                #     'y': 0.95,
-                                #     'x': 0.5,
-                                #     'xanchor': 'center',
-                                #     'yanchor': 'top',
-                                #     'font': {'size': 22, 'color': 'white', 'family': 'Arial, sans-serif', 'weight': 'bold'}
-                                # },
+                                font=dict(color="#ffffff", size=14, family="Arial, sans-serif"),
                                 xaxis=dict(
-                                    title=dict(
-    text="Score Range", font=dict(
-        size=16, color="white")),
+                                    title=dict(text="Score Range", font=dict(size=16, color="white")),
                                     categoryorder="array",
-                                    categoryarray=[
-    "0-20", "21-40", "41-60", "61-80", "81-100"],
+                                    categoryarray=["0-20", "21-40", "41-60", "61-80", "81-100"],
                                     tickfont=dict(size=14, color="white"),
                                     gridcolor="rgba(255, 255, 255, 0.1)"
                                 ),
                                 yaxis=dict(
-                                    title=dict(
-    text="Number of Resumes", font=dict(
-        size=16, color="white")),
+                                    title=dict(text="Number of Resumes", font=dict(size=16, color="white")),
                                     tickfont=dict(size=14, color="white"),
                                     gridcolor="rgba(255, 255, 255, 0.1)",
                                     zeroline=False
@@ -2259,10 +2130,8 @@ class ResumeApp:
                                 # Format the date
                                 try:
                                     from datetime import datetime
-                                    date_obj = datetime.strptime(
-                                        analysis["date"], "%Y-%m-%d %H:%M:%S")
-                                    formatted_date = date_obj.strftime(
-                                        "%b %d, %Y")
+                                    date_obj = datetime.strptime(analysis["date"], "%Y-%m-%d %H:%M:%S")
+                                    formatted_date = date_obj.strftime("%b %d, %Y")
                                 except:
                                     formatted_date = analysis["date"]
 
@@ -2291,8 +2160,7 @@ class ResumeApp:
 
             # Job Role Selection for AI Analysis
             categories = list(self.job_roles.keys())
-            selected_category = st.selectbox(
-    "Job Category", categories, key="ai_category")
+            selected_category = st.selectbox("Job Category", categories, key="ai_category")
 
             roles = list(self.job_roles[selected_category].keys())
             selected_role = st.selectbox("Specific Role", roles, key="ai_role")
@@ -2310,19 +2178,17 @@ class ResumeApp:
             """, unsafe_allow_html=True)
 
             # File Upload for AI Analysis
-            uploaded_file = st.file_uploader(
-    "Upload your resume", type=[
-        'pdf', 'docx'], key="ai_file")
+            uploaded_file = st.file_uploader("Upload your resume", type=['pdf', 'docx'], key="ai_file")
 
             if not uploaded_file:
-            # Display empty state with a prominent upload button
+                # Display empty state with a prominent upload button
                 st.markdown(
-                self.render_empty_state(
-            "fas fa-robot",
+                    self.render_empty_state(
+                        "fas fa-robot",
                         "Upload your resume to get AI-powered analysis and recommendations"
-        ),
-        unsafe_allow_html=True
-    )
+                    ),
+                    unsafe_allow_html=True
+                )
             else:
                 # Add a prominent analyze button
                 analyze_ai = st.button("🤖 Analyze with AI",
@@ -2449,11 +2315,14 @@ class ResumeApp:
                                         <div style="display: flex; flex-wrap: wrap; gap: 20px;">
                                             <div style="flex: 1; min-width: 200px;">
                                                 <p style="color: #ffffff;"><strong>Job Role:</strong> {job_role if job_role else "Not specified"}</p>
-                                                <p style="color: #ffffff;"><strong>Analysis Date:</strong> {current_date}</p>                                                                                                                                        </div>
+                                                <p style="color: #ffffff;"><strong>Analysis Date:</strong> {current_date}</p>
+                                            </div>
                                             <div style="flex: 1; min-width: 200px;">
                                                 <p style="color: #ffffff;"><strong>AI Model:</strong> {model_used}</p>
                                                 <p style="color: #ffffff;"><strong>Overall Score:</strong> {resume_score}/100 - {"Excellent" if resume_score >= 80 else "Good" if resume_score >= 60 else "Needs Improvement"}</p>
                                                 {f'<p style="color: #4CAF50;"><strong>✓ Custom Job Description Used</strong></p>' if st.session_state.get('used_custom_job_desc', False) else ''}
+                                            </div>
+                                        </div>
                                     </div>
                                     """, unsafe_allow_html=True)
                                     
@@ -2715,8 +2584,6 @@ class ResumeApp:
                                     # Clean up any visible HTML tags that might appear in the text
                                     formatted_analysis = formatted_analysis.replace("&lt;/div&gt;", "")
                                     formatted_analysis = formatted_analysis.replace("&lt;div&gt;", "")
-                                    formatted_analysis = formatted_analysis.replace("<div>", "<div>")  # Ensure proper opening
-                                    formatted_analysis = formatted_analysis.replace("</div>", "</div>")  # Ensure proper closing
                                     
                                     # Add CSS for the report
                                     st.markdown("""
@@ -2793,9 +2660,6 @@ class ResumeApp:
                             import traceback as tb
                             st.code(tb.format_exc())
 
-        #st.toast("Check out these repositories: [Interview_Question](https://github.com/pankajkumar952/Interview_Question_Java)", icon="ℹ️")
-
-
     def render_home(self):
         apply_modern_styles()
         
@@ -2827,8 +2691,6 @@ class ResumeApp:
         )
         
         st.markdown('</div>', unsafe_allow_html=True)
-        
-        #st.toast("Check out these repositories: [Readme](https://github.com/pankajkumar952/pankajkumar952)", icon="ℹ️")
 
         # Call-to-Action with Streamlit navigation
         col1, col2, col3 = st.columns([1, 1, 1])
@@ -2844,9 +2706,6 @@ class ResumeApp:
     def render_job_search(self):
         """Render the job search page"""
         render_job_search()
-
-        #st.toast("Check out these repositories: [Leetcode](https://github.com/pankajkumar952/LeetCode_Solutions)", icon="ℹ️")
-
 
     def render_feedback_page(self):
         """Render the feedback page"""
@@ -2869,9 +2728,6 @@ class ResumeApp:
             
         with stats_tab:
             feedback_manager.render_feedback_stats()
-
-        #st.toast("Check out these repositories: [AI Code](https://github.com/pankajkumar952/AI_Code_Debugger)", icon="ℹ️")
-
 
     def show_repo_notification(self):
         message = """
@@ -2900,7 +2756,6 @@ class ResumeApp:
 </div>
 """
         st.sidebar.markdown(message, unsafe_allow_html=True)
-
 
     def main(self):
         """Main application entry point"""
@@ -2981,3 +2836,4 @@ class ResumeApp:
 if __name__ == "__main__":
     app = ResumeApp()
     app.main()
+        
