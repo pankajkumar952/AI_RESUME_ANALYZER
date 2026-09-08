@@ -1,7 +1,7 @@
 # 🤖 AI Resume Analyzer
 
 <p align="center">
-  <a href="https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/">
+  <a href="https://ai-resume-analyzer-bfew.onrender.com/">
     <img src="https://img.shields.io/badge/🚀_Live_Demo-Streamlit-red?style=for-the-badge&logo=streamlit" alt="Live Demo">
   </a>
   <a href="https://github.com/pankajkumar952/AI-Resume-Analyzer">
@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/">
+  <a href="https://ai-resume-analyzer-bfew.onrender.com/">
     🚀 <strong>Try the Live Application</strong>
   </a>
 </p>
@@ -31,7 +31,7 @@
 
 <p align="center">
 
-<a href="https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/">
+<a href="https://ai-resume-analyzer-bfew.onrender.com/">
 <img src="https://img.shields.io/badge/OPEN_AI_RESUME_ANALYZER-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open AI Resume Analyzer">
 </a>
 
@@ -39,7 +39,7 @@
 
 ### 🔗 Live Application
 
-**[🚀 Open AI Resume Analyzer](https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/)**
+**[🚀 Open AI Resume Analyzer](https://ai-resume-analyzer-bfew.onrender.com/)**
 
 > Upload your resume and use the AI-powered application to analyze your profile and receive career-focused insights.
 
@@ -171,7 +171,7 @@ The application is deployed using **Streamlit Community Cloud**.
 
 ### 🌐 Production Application
 
-**[🚀 AI Resume Analyzer — Live Application](https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/)**
+**[🚀 AI Resume Analyzer — Live Application](https://ai-resume-analyzer-bfew.onrender.com/)**
 
 ### Deployment Architecture
 
@@ -522,7 +522,8 @@ https://pankajkumar952.github.io/Website_Learning_Platform_For_Engineer/
 
 ### AI Resume Analyzer — Live
 
-https://airesumeanalyzer-jeqbg9qli7k5wj4ndps3fs.streamlit.app/
+
+https://ai-resume-analyzer-bfew.onrender.com/
 
 ---
 
